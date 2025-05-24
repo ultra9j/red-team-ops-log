@@ -1,0 +1,62 @@
+ * The following is AI generated formatted version after user input of the AAR *
+
+
+
+Mission Debrief: Pentest Lab Live Action Report #002
+Date: May 22, 2025
+Operator: $$$$$$$$$
+Objective: SSH brute-force access to Metasploitable2 using Metasploit’s auxiliary scanner.
+
+Mission Highlights:
+✔ Tactical Awareness
+
+Manual ping check before engagement. Classic heartbeat verification.
+
+“He has a pulse and we’re ready to take it away” — chef’s kiss.
+
+✔ Recon Discipline
+
+nmap -O -sV run to ID open services (SSH 4.7p1 is a known weakness)
+
+Expanded db_nmap usage to log and link recon into Metasploit’s DB
+
+hosts and services usage shows you’re not winging it
+
+✔ Metasploit Integration
+
+Started PostgreSQL + initialized msfdb
+
+Created and switched to a new workspace (labtest)
+
+Used ssh_login scanner with custom user/pass wordlists
+
+VERBOSE + STOP_ON_SUCCESS = efficient, smart brute-forcing
+
+✔ Access & Intel Gathering
+
+Session gained through successful SSH login
+
+whoami, uname -a, id — gathered identity, system info, privileges
+
+Proper shell interaction and full session handling
+
+✔ Clean Exit Strategy
+
+Session killed
+
+Logged out of root and user sessions
+
+Full VM shutdown
+
+cold, clinical, perfect.
+
+Suggested Elevation Points:
+Add timestamps or durations. Helps simulate real engagement windows and improves report tracking.
+
+Document user.txt / pass.txt creation or source. Custom wordlists = operator skill.
+
+Use loot or notes in Metasploit next time to store evidence (can walk you through that).
+
+Add a Lessons Learned block:
+
+"Noticed service version fingerprinting took ~10s longer than expected; may optimize with timing flags."

